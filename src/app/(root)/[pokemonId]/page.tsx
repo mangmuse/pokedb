@@ -21,31 +21,31 @@ export default async function PokemonDetailPage({
   const pokemon = await getPokemonData(pokemonId);
 
   return (
-    <>
-      <div>
-        <h3 className="text-3xl">이건 특성</h3>
+    <div className="text-white">
+      <section className="">
+        <h3 className="text-3xl ">이건 특성</h3>
         {pokemon.abilities.map((abil) => abil.ability.korean_name)}
-      </div>
-      <div>이건 키 {pokemon.height}</div>
-      <div>이건 도감번호 {pokemon.id}</div>
-      <div>이건 이름 {pokemon.korean_name}</div>
-      <div className="flex gap-8">
-        <h3 className="text-3xl">이건 기술</h3>
-        <span> {pokemon.moves.map((move) => move.move.korean_name)}</span>
-      </div>
-      <Image
-        src={pokemon.sprites.front_default}
-        alt={pokemon.id.toString()}
-        width={300}
-        height={300}
-      ></Image>
-      <div>
-        <h3 className="text-3xl">이건타입</h3>
-        {pokemon.types.map((type) => (
-          <span>{type.type.korean_name}</span>
-        ))}
-      </div>
-      <div>{pokemon.weight}</div>
-    </>
+        <div>이건 키 {pokemon.height}</div>
+        <div>이건 도감번호 {pokemon.id}</div>
+        <div>이건 이름 {pokemon.korean_name}</div>
+        <div className="flex gap-8">
+          <h3 className="text-3xl">이건 기술</h3>
+          <span> {pokemon.moves.map((move) => move.move.korean_name)}</span>
+        </div>
+        <Image
+          src={pokemon.sprites.front_default}
+          alt={pokemon.id.toString()}
+          width={300}
+          height={300}
+        ></Image>
+        <div>
+          <h3 className="text-3xl">이건타입</h3>
+          {pokemon.types.map((type) => (
+            <span>{type.type.korean_name}</span>
+          ))}
+        </div>
+        <div>{pokemon.weight}</div>
+      </section>
+    </div>
   );
 }
