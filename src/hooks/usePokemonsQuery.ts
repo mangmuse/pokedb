@@ -12,8 +12,6 @@ export default function usePokemonsQuery() {
     initialPageParam: 0,
 
     getNextPageParam: (lastPage, allPages, d) => {
-      console.log(allPages);
-      console.log(d);
       return lastPage.nextOffset ? lastPage.nextOffset : undefined;
     },
     select: (data) => ({
@@ -22,5 +20,8 @@ export default function usePokemonsQuery() {
       pages: data.pages,
       pageParams: data.pageParams,
     }),
+    staleTime: 1000 * 60 * 10,
+    gcTime: 1000 * 60 * 30,
+    refetchOnWindowFocus: false,
   });
 }

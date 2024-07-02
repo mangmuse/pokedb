@@ -9,7 +9,7 @@ import { NextResponse } from "next/server";
 export const GET = async (
   request: Request,
   { params }: { params: { pokemonId: string } }
-): Promise<NextResponse | Error> => {
+): Promise<NextResponse | void> => {
   const { pokemonId } = params;
 
   try {

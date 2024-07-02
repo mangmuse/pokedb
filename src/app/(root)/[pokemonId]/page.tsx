@@ -1,6 +1,7 @@
 import { TPokemon } from "@/types/pokemons.type";
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 
 interface PokemonDetailPageProps {
   params: {
@@ -40,11 +41,12 @@ export default async function PokemonDetailPage({
         ></Image>
         <div>
           <h3 className="text-3xl">이건타입</h3>
-          {pokemon.types.map((type) => (
-            <span>{type.type.korean_name}</span>
+          {pokemon.types.map((type, idx) => (
+            <span key={idx}>{type.type.korean_name}</span>
           ))}
         </div>
         <div>{pokemon.weight}</div>
+        <Link href="/">뒤로가기</Link>
       </section>
     </div>
   );

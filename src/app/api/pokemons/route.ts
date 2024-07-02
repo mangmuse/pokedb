@@ -53,14 +53,16 @@ import {
   TSpeciesResponse,
 } from "@/types/pokemons.type";
 
-const TOTAL_POKEMON = 1301;
-const POKEMONS_PER_PAGE = 30;
+// const TOTAL_POKEMON = 1301;
+const TOTAL_POKEMON = 1008;
+const POKEMONS_PER_PAGE = 24;
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const offset = parseInt(searchParams.get("offset") || "0");
   const limit = parseInt(
-    searchParams.get("limit") || POKEMONS_PER_PAGE.toString()
+    // searchParams.get("limit") ||
+    POKEMONS_PER_PAGE.toString()
   );
 
   try {
@@ -70,7 +72,9 @@ export async function GET(request: Request) {
     const pokemonResults = response.data.results;
     console.log(pokemonResults);
     const allPokemonPromises = pokemonResults.map((pokemon) => {
+      console.log(pokemon.url);
       const urlParts = pokemon.url.split("/");
+      console.log(urlParts);
       const id = urlParts[urlParts.length - 2];
       return Promise.all([
         axios.get<TPokemonBaseInfoResponse>(
