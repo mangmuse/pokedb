@@ -15,7 +15,7 @@
 //       (_, index) => {
 //         const id = index + 1;
 //         return Promise.all([
-//           axios.get<TPokemonBaseInfoResponse>(
+//           axios.get<TPokemoㅙnBaseInfoResponse>(
 //             `https://pokeapi.co/api/v2/pokemon/${id}`
 //           ),
 //           axios.get<TSpeciesResponse>(

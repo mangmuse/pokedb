@@ -6,6 +6,7 @@ import PokemonCard from "./PokemonCard";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import usePokemonsQuery from "@/hooks/usePokemonsQuery";
+import { Suspense } from "react";
 
 export default function PokemonList() {
   const { data, error, fetchNextPage, hasNextPage, isFetchingNextPage } =
@@ -26,8 +27,9 @@ export default function PokemonList() {
 
   return (
     <div>
-      <h1>Pokemon List</h1>
       <ul className="p-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {!data && <div className="text-2xl h-10/12 text-white">로딩중...</div>}
+        {/* <Suspense fallback={<div>로딩중...</div>}> */}
         {data?.pokemons.map((pokemon) => (
           <li key={pokemon.id}>
             <Link href={`/${pokemon.id}`}>
@@ -35,6 +37,7 @@ export default function PokemonList() {
             </Link>
           </li>
         ))}
+        {/* </Suspense> */}
       </ul>
       {isFetchingNextPage && <p className="text-white">로딩중...</p>}
       <div ref={ref}></div>

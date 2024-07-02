@@ -9,6 +9,7 @@ export default function usePokemonsQuery() {
 
       return pokemons;
     },
+
     initialPageParam: 0,
 
     getNextPageParam: (lastPage, allPages, d) => {
