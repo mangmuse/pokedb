@@ -17,6 +17,15 @@ export type TSpeciesResponse = {
   ];
 };
 
+export type TPokemonPage = {
+  next: string;
+  previous: string;
+  results: {
+    name: string;
+    url: string;
+  }[];
+};
+
 //
 export type TPokemonBaseInfoResponse = {
   id: number;

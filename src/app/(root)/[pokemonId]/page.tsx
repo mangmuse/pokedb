@@ -9,7 +9,7 @@ interface PokemonDetailPageProps {
 }
 const getPokemonData = async (pokemonId: string): Promise<TPokemon<true>> => {
   const { data } = await axios.get<TPokemon<true>>(
-    `http://localhost:3001/api/pokemons/${pokemonId}`,
+    `http://localhost:3000/api/pokemons/${pokemonId}`,
     { params: { pokemonId } }
   );
   return data;

@@ -15,13 +15,14 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
           className=" object-cover bg-gray-200 outline outline-gray-300 rounded-lg"
           src={pokemon.sprites.front_default}
           alt={pokemon.id.toString()} //Todo: 이름같은걸로 바꾸기
-          layout="fill"
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
       <div className="flex flex-col items-center p-4">
         <h3 className="text-lg font-bold">{pokemon.korean_name}</h3>
-        <p className="w-full truncate text-center">asd</p>
-        <span className="text-sm rounded-lg bg-green-100 px-2 my-2">
+        <span className="text-sm rounded-lg bg-green-100 px-2 mt-2">
           도감번호 {pokemon.id}
         </span>
       </div>
