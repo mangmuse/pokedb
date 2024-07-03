@@ -19,10 +19,15 @@ export const getPokemons = async (
 
 export const getPokemonData = async (
   pokemonId: string
-): Promise<TPokemon<true>> => {
-  const { data } = await axios.get<TPokemon<true>>(
-    `http://localhost:3000/api/pokemons/${pokemonId}`,
-    { params: { pokemonId } }
-  );
-  return data;
+): Promise<TPokemon<true> | null> => {
+  try {
+    const { data } = await axios.get<TPokemon<true>>(
+      `http://localhost:3000/api/pokemons/${pokemonId}`,
+      { params: { pokemonId } }
+    );
+    return data;
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
 };

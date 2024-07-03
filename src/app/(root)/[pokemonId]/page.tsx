@@ -6,6 +6,8 @@ import BlablaList from "./_components/BlablaList";
 import PokemonDetailHeader from "./_components/PokemonDetailHeader";
 import { getPokemonData } from "@/api/pokemon.api";
 import Spanitem from "@/components/Spanitem";
+import { redirect } from "next/navigation";
+import PokemonDetailNav from "./_components/PokemonDetailNav";
 
 interface PokemonDetailPageProps {
   params: {
@@ -19,8 +21,8 @@ export async function generateMetadata({
   const data = await getPokemonData(pokemonId);
 
   return {
-    title: `PokeDB | ${data.korean_name}의 상세정보`,
-    description: `${data.korean_name}의 타입, 특성 기술등의 상세정보`,
+    title: `PokeDB | ${data?.korean_name}의 상세정보`,
+    description: `${data?.korean_name}의 타입, 특성 기술등의 상세정보`,
   };
 }
 
@@ -29,6 +31,8 @@ export default async function PokemonDetailPage({
 }: PokemonDetailPageProps) {
   const pokemon = await getPokemonData(pokemonId);
 
+  if (!pokemon) redirect("/"); // Todo
+
   return (
     <div className="h-full flex justify-center items-center  ">
       <section className="max-w-screen-sm bg-gray-100 rounded-xl">
@@ -36,7 +40,7 @@ export default async function PokemonDetailPage({
         <article className="flex flex-col items-center p-4 ">
           <Image
             src={pokemon.sprites.front_default}
-            alt={pokemon.id.toString()}
+            alt={pokemon.name}
             width={150}
             height={150}
           ></Image>
@@ -50,17 +54,14 @@ export default async function PokemonDetailPage({
 
           <ul className="flex flex-wrap gap-1 overflow-auto mt-2">
             {pokemon.moves.map((move) => (
-              <Spanitem bgColor="bg-gray-300" key={move.move.korean_name}>
-                {move.move.korean_name}
-              </Spanitem>
+              <li key={move.move.korean_name}>
+                <Spanitem bgColor="bg-gray-300">
+                  {move.move.korean_name}
+                </Spanitem>
+              </li>
             ))}
           </ul>
-          <Link
-            className="text-white  bg-blue-500 px-3 py-1 rounded-md mt-2"
-            href="/"
-          >
-            목록으로
-          </Link>
+          <PokemonDetailNav pokemonId={pokemonId} />
         </article>
       </section>
     </div>

@@ -3,7 +3,7 @@ import axios from "axios";
 import {
   TPokemon,
   TPokemonBaseInfoResponse,
-  TPokemonPage,
+  TPokemonPageResponse,
   TSpeciesResponse,
 } from "@/types/pokemons.type";
 
@@ -16,15 +16,12 @@ export async function GET(request: Request) {
   const limit = parseInt(POKEMONS_PER_PAGE.toString());
 
   try {
-    const response = await axios.get<TPokemonPage>(
+    const response = await axios.get<TPokemonPageResponse>(
       `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
     );
     const pokemonResults = response.data.results;
-    console.log(pokemonResults);
     const allPokemonPromises = pokemonResults.map((pokemon) => {
-      console.log(pokemon.url);
       const urlParts = pokemon.url.split("/");
-      console.log(urlParts);
       const id = urlParts[urlParts.length - 2];
       return Promise.all([
         axios.get<TPokemonBaseInfoResponse>(

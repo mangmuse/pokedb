@@ -1,16 +1,23 @@
 import { PropsWithChildren } from "react";
 
 interface SpanItemProps {
-  bgColor: "bg-gray-300" | "bg-red-400" | "bg-green-300";
+  bold?: boolean;
+  bgColor:
+    | "bg-gray-300"
+    | "bg-red-400"
+    | "bg-green-300"
+    | "bg-green-100"
+    | "bg-red-100";
 }
 
-export default function Spanitem({
+export default function SpanItem({
   children,
+  bold,
   bgColor,
 }: PropsWithChildren<SpanItemProps>) {
-  return (
-    <span className={`text-sm rounded-lg ${bgColor} px-2 leading-5`}>
-      {children}
-    </span>
-  );
+  const spanItemClass = `text-sm rounded-lg  px-2 py-[3px] p-4
+  ${bgColor} ${bold && "font-semibold"}
+  `;
+
+  return <span className={spanItemClass}>{children}</span>;
 }
