@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import usePokemonsQuery from "@/hooks/usePokemonsQuery";
 import Loading from "@/app/(root)/loading";
+import { Suspense } from "react";
 
 export default function PokemonList() {
   const {

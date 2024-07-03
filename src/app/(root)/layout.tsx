@@ -5,6 +5,7 @@ import { PropsWithChildren } from "react";
 export const metadata: Metadata = {
   title: "PokeDB | 전체 포켓몬 리스트",
   description: "포켓몬 도감",
+  icons: "/favicon.ico",
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {

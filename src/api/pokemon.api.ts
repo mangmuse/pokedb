@@ -1,32 +1,6 @@
 import { TPokemon } from "@/types/pokemons.type";
 import axios from "axios";
 
-// export const getPokemons = async (): Promise<TPokemon[]> => {
-//   const path = `/api/pokemons`;
-//   try {
-//     const res = await axios.get<{
-//       pokemons: TPokemon[];
-//       nextPage: number | null;
-//     }>(path);
-//     const pokemons = res.data.pokemons;
-//     if (!pokemons) {
-//       throw new Error("No pokemons found");
-//     }
-//     return pokemons;
-//   } catch (e) {
-//     console.error(e);
-//     throw new Error();
-//   }
-// };
-
-// export const getPokemons = async (): Promise<TPokemon[]> => {
-//   const path = "/api/pokemons";
-//   const res = await axios.get<TPokemon[]>(path);
-//   const pokemons = res.data;
-
-//   return pokemons;
-// };
-
 export interface PokemonResponse {
   nextOffset: number | null;
   pokemons: TPokemon[];

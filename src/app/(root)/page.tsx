@@ -1,6 +1,13 @@
-import PokemonList from "@/components/PokemonList";
+// import PokemonList from "@/components/PokemonList";
 import Loading from "./loading";
 import { Suspense } from "react";
+import dynamic from "next/dynamic";
+import PokemonList from "@/components/PokemonList";
+
+// const PokemonList = dynamic(() => import("@/components/PokemonList"), {
+//   ssr: false,
+// });
+
 export default function HomePage() {
   return (
     <section className="">

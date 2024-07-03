@@ -16,7 +16,6 @@ export const GET = async (
     const response = await axios.get<TPokemonBaseInfoResponse>(
       `https://pokeapi.co/api/v2/pokemon/${pokemonId}`
     );
-    console.log(response);
     const speciesResponse = await axios.get<TSpeciesResponse>(
       `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`
     );
@@ -63,16 +62,15 @@ export const GET = async (
 
     const pokemonData: TPokemon<true> = {
       ...response.data,
+      name: speciesResponse.data.name,
       korean_name: koreanName?.name || speciesResponse.data.name,
       types: typesWithKoreanNames,
       abilities: abilitiesWithKoreanNames,
       moves: movesWithKoreanNames,
     };
-    console.log(pokemonData);
-    console.log("asdasdasdasd");
     return NextResponse.json(pokemonData);
   } catch (error) {
-    // console.error("Error fetching Pokemon data:", error);
+    console.error("Error fetching Pokemon data:", error);
     return NextResponse.json({ error: "Failed to fetch data" });
   }
 };

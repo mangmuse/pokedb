@@ -5,6 +5,7 @@ import Link from "next/link";
 import BlablaList from "./_components/BlablaList";
 import PokemonDetailHeader from "./_components/PokemonDetailHeader";
 import { getPokemonData } from "@/api/pokemon.api";
+import Spanitem from "@/components/Spanitem";
 
 interface PokemonDetailPageProps {
   params: {
@@ -49,12 +50,9 @@ export default async function PokemonDetailPage({
 
           <ul className="flex flex-wrap gap-1 overflow-auto mt-2">
             {pokemon.moves.map((move) => (
-              <span
-                className="text-sm rounded-lg bg-gray-300 px-2 leading-5 "
-                key={move.move.korean_name}
-              >
+              <Spanitem bgColor="bg-gray-300" key={move.move.korean_name}>
                 {move.move.korean_name}
-              </span>
+              </Spanitem>
             ))}
           </ul>
           <Link

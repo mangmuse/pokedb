@@ -4,6 +4,18 @@ export type TPokemonBaseName<IsDetail extends boolean = false> = {
     : { url: string; name: string };
 };
 
+export type TPokemonBaseInfoResponse = {
+  id: number;
+  height: number;
+  weight: number;
+  sprites: {
+    front_default: string;
+  };
+  types: { type: { url: string; name: string } }[];
+  abilities: { ability: { url: string; name: string } }[];
+  moves: { move: { url: string; name: string } }[];
+};
+
 export type TSpeciesResponse = {
   name: string;
   names: [
@@ -26,19 +38,6 @@ export type TPokemonPage = {
   }[];
 };
 
-//
-export type TPokemonBaseInfoResponse = {
-  id: number;
-  height: number;
-  weight: number;
-  sprites: {
-    front_default: string;
-  };
-  types: { type: { url: string; name: string } }[];
-  abilities: { ability: { url: string; name: string } }[];
-  moves: { move: { url: string; name: string } }[];
-};
-
 type TPokemonDetail = {
   abilities: TPokemonBaseName<true>[];
   types: TPokemonBaseName<true>[];
@@ -47,6 +46,7 @@ type TPokemonDetail = {
 
 export type TPokemon<IsDetail extends boolean = false> = {
   korean_name: string | null;
+  name: string;
 } & (IsDetail extends true
   ? Omit<TPokemonBaseInfoResponse, "types" | "abilities" | "moves"> &
       TPokemonDetail

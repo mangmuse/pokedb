@@ -1,6 +1,9 @@
 "use client";
 import { getPokemons } from "@/api/pokemon.api";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import {
+  useInfiniteQuery,
+  useSuspenseInfiniteQuery,
+} from "@tanstack/react-query";
 
 export default function usePokemonsQuery() {
   return useInfiniteQuery({
@@ -9,8 +12,8 @@ export default function usePokemonsQuery() {
       const pokemons = getPokemons(pageParam);
       return pokemons;
     },
-    initialPageParam: 0,
 
+    initialPageParam: 0,
     getNextPageParam: (lastPage) => {
       return lastPage.nextOffset ? lastPage.nextOffset : undefined;
     },

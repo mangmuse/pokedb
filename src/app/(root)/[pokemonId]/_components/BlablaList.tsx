@@ -1,3 +1,4 @@
+import Spanitem from "@/components/Spanitem";
 import { TPokemon } from "@/types/pokemons.type";
 
 interface BlablaListProps {
@@ -16,12 +17,15 @@ export default function BlablaList({ pokemon, title }: BlablaListProps) {
         <span className="font-semibold">{title}: </span>
         <ul className="flex items-center gap-1">
           {items.map((item, idx) => (
-            <li
-              className={`text-sm rounded-lg ${bgColor} px-2 leading-5`}
-              key={idx}
-            >
+            // <li
+            //   className={`text-sm rounded-lg ${bgColor} px-2 leading-5`}
+            //   key={idx}
+            // >
+            //
+            // </li>
+            <Spanitem key={idx} bgColor={bgColor}>
               {isType ? item.type.korean_name : item.ability.korean_name}
-            </li>
+            </Spanitem>
           ))}
         </ul>
       </div>
