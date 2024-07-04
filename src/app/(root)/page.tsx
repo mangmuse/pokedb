@@ -1,4 +1,4 @@
-// import PokemonList from "@/components/PokemonList";
+import PokemonList from "@/components/PokemonList";
 import Loading from "./loading";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
@@ -17,10 +17,10 @@ import {
 import { pokemonOptions } from "@/api/pokemonOptions";
 import { get } from "http";
 
-const PokemonList = dynamic(() => import("@/components/PokemonList"), {
-  ssr: false,
-  loading: () => <Loading />,
-});
+// const PokemonList = dynamic(() => import("@/components/PokemonList"), {
+//   ssr: false,
+//   loading: () => <Loading />,
+// });
 
 // export const pokemonOptions = queryOptions({
 //   queryKey: ["pokemons"],
