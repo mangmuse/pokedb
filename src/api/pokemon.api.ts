@@ -1,6 +1,8 @@
 import { TPokemon } from "@/types/pokemons.type";
 import axios from "axios";
 
+const API_HOST = process.env.NEXT_API_HOST;
+
 export interface PokemonResponse {
   nextOffset: number | null;
   pokemons: TPokemon[];
@@ -10,7 +12,7 @@ export const getPokemons = async (
   pageParam: number | unknown = 0
 ): Promise<PokemonResponse> => {
   const response = await axios.get<PokemonResponse>(
-    `http://localhost:3000/api/pokemons?offset=${pageParam}&limit=30`
+    `${API_HOST}/api/pokemons?offset=${pageParam}&limit=30`
   );
   const data = response.data;
 
@@ -22,7 +24,7 @@ export const getPokemonData = async (
 ): Promise<TPokemon<true> | null> => {
   try {
     const { data } = await axios.get<TPokemon<true>>(
-      `http://localhost:3000/api/pokemons/${pokemonId}`,
+      `${API_HOST}/api/pokemons/${pokemonId}`,
       { params: { pokemonId } }
     );
     return data;

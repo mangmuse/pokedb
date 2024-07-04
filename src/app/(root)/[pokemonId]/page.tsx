@@ -31,7 +31,7 @@ export default async function PokemonDetailPage({
 }: PokemonDetailPageProps) {
   const pokemon = await getPokemonData(pokemonId);
 
-  if (!pokemon) redirect("/"); // Todo
+  if (!pokemon) redirect("/");
 
   return (
     <div className="h-full flex justify-center items-center  ">

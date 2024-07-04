@@ -4,10 +4,10 @@ interface SpanItemProps {
   bold?: boolean;
   bgColor:
     | "bg-gray-300"
-    | "bg-red-400"
-    | "bg-green-300"
     | "bg-green-100"
-    | "bg-red-100";
+    | "bg-green-300"
+    | "bg-red-100"
+    | "bg-red-400";
 }
 
 export default function SpanItem({
