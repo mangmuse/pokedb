@@ -12,14 +12,14 @@ interface PokemonCardProps {
 export default function PokemonCard({ pokemon }: PokemonCardProps) {
   const formattedPokemonId = formatPokemonId(pokemon.id);
   return (
-    <article className="p-4 bg-gray-100 rounded-lg shadow-lg hover:scale-105 transition-all pb-0 ">
-      <div className="flex justify-center relative w-full h-48 outline outline-gray-300 rounded-lg ">
+    <article className="p-4 bg-gray-100 rounded-xl shadow-lg hover:scale-105 transition-all pb-0 ">
+      <div className="flex justify-center relative  h-48   ">
         <Image
           className=" bg-cover "
-          src={pokemon.sprites.front_default}
+          src={pokemon.sprites.other.dream_world.front_default}
           alt={pokemon.name}
-          width={192}
-          height={192}
+          width={150}
+          height={150}
         />
       </div>
       <div className="flex flex-col items-center p-4">

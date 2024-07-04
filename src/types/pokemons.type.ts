@@ -25,6 +25,20 @@ export type TPokemonBaseInfoResponse = TPokemonDetail & {
   weight: number;
   sprites: {
     front_default: string;
+
+    other: {
+      dream_world: {
+        front_default: string;
+      };
+
+      "official-artwork": {
+        front_default: string;
+        front_shiny: string;
+      };
+      showdown: {
+        front_shiny: string;
+      };
+    };
   };
 };
 

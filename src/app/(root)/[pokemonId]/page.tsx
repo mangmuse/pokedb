@@ -42,15 +42,16 @@ export default async function PokemonDetailPage({
   const formattedHeight = formatPokemonHeight(pokemon.height);
 
   return (
-    <div className="h-full flex justify-center items-center  ">
-      <section className="max-w-screen-sm bg-gray-100 rounded-xl">
+    <div className="h-full flex justify-center items-center  overflow-auto">
+      <section className="max-w-screen-sm bg-gray-100 rounded-xl ">
         <PokemonDetailHeader pokemon={pokemon} />
         <article className="flex flex-col items-center p-4 ">
           <Image
-            src={pokemon.sprites.front_default}
+            src={pokemon.sprites.other["official-artwork"].front_default}
             alt={pokemon.name}
             width={150}
             height={150}
+            priority
           ></Image>
           <h3 className="text-xl mb-2 font-semibold">{pokemon.korean_name}</h3>
           <p>

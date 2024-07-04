@@ -34,7 +34,7 @@ export default function PokemonList({
   }
 
   return (
-    <div>
+    <div className="px-20">
       <ul className="p-8 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ">
         {data?.pokemons.map((pokemon) => (
           <li key={pokemon.id}>
