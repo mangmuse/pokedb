@@ -25,7 +25,7 @@ export default function PokemonList() {
   });
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div className="text-white">Error: {error.message}</div>;
   }
   if (isPending) return <Loading />;
   return (
