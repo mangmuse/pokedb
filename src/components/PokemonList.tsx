@@ -4,10 +4,15 @@ import PokemonCard from "./PokemonCard";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import usePokemonsQuery from "@/hooks/usePokemonsQuery";
+import { PokemonResponse } from "@/api/pokemon.api";
 
-export default function PokemonList() {
+export default function PokemonList({
+  pokemonData,
+}: {
+  pokemonData: PokemonResponse;
+}) {
   const { data, error, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    usePokemonsQuery();
+    usePokemonsQuery(pokemonData);
   const { ref } = useInView({
     threshold: 1,
     onChange: (inView) => {
