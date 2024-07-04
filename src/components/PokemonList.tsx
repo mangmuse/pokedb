@@ -15,7 +15,7 @@ export default function PokemonList({
   const {
     data,
     error,
-    isPending,
+    isFetching,
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
@@ -44,6 +44,7 @@ export default function PokemonList({
           </li>
         ))}
       </ul>
+      {isFetching && <Loading />}
       <div className="text-white" ref={ref}></div>
     </div>
   );
