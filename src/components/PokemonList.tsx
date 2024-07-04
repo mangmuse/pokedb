@@ -35,7 +35,7 @@ export default function PokemonList({
 
   return (
     <div>
-      <ul className="p-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <ul className="p-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
         {data?.pokemons.map((pokemon) => (
           <li key={pokemon.id}>
             <Link href={`/${pokemon.id}`}>
@@ -44,9 +44,7 @@ export default function PokemonList({
           </li>
         ))}
       </ul>
-      <div className="text-white" ref={ref}>
-        asd
-      </div>
+      <div className="text-white" ref={ref}></div>
     </div>
   );
 }
