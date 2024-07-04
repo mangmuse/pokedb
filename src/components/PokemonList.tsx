@@ -44,8 +44,8 @@ export default function PokemonList({
           </li>
         ))}
       </ul>
-      {isFetching && <Loading />}
       <div className="text-white" ref={ref}></div>
+      {isFetching && <Loading />}
     </div>
   );
 }

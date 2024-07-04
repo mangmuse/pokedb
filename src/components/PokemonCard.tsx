@@ -3,7 +3,7 @@
 import { TPokemon } from "@/types/pokemons.type";
 import Image from "next/image";
 import SpanItem from "./Spanitem";
-import { formatPokemonId } from "@/util/pokemonIdFormatUtils";
+import { formatPokemonId } from "@/util/pokemonNumberFormatUtils";
 
 interface PokemonCardProps {
   pokemon: TPokemon;

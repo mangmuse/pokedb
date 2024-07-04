@@ -1,8 +1,4 @@
 import PokemonList from "@/components/PokemonList";
-import Loading from "./loading";
-import { Suspense } from "react";
-import dynamic from "next/dynamic";
-// import PokemonList from "@/components/PokemonList";
 import { getPokemons } from "@/api/pokemon.api";
 import {
   HydrationBoundary,

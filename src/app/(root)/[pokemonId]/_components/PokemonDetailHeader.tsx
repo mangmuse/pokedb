@@ -1,5 +1,5 @@
 import { TPokemon } from "@/types/pokemons.type";
-import { formatPokemonId } from "@/util/pokemonIdFormatUtils";
+import { formatPokemonId } from "@/util/pokemonNumberFormatUtils";
 
 export default function PokemonDetailHeader({
   pokemon,

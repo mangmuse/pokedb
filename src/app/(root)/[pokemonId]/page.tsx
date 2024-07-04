@@ -2,7 +2,7 @@ import { TPokemon } from "@/types/pokemons.type";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import BlablaList from "./_components/BlablaList";
+import BlablaList from "./_components/PokemonTypeAndAbilityList";
 import PokemonDetailHeader from "./_components/PokemonDetailHeader";
 import { getPokemonData } from "@/api/pokemon.api";
 import Spanitem from "@/components/Spanitem";
@@ -11,7 +11,8 @@ import PokemonDetailNav from "./_components/PokemonDetailNav";
 import {
   formatPokemonHeight,
   formatPokemonWeight,
-} from "@/util/pokemonIdFormatUtils";
+} from "@/util/pokemonNumberFormatUtils";
+import PokemonTypeAndAbilityList from "./_components/PokemonTypeAndAbilityList";
 
 interface PokemonDetailPageProps {
   params: {
@@ -56,8 +57,8 @@ export default async function PokemonDetailPage({
             키: {formattedHeight}cm 무게: {formattedWeight}kg
           </p>
 
-          <BlablaList pokemon={pokemon} title="타입" />
-          <BlablaList pokemon={pokemon} title="능력" />
+          <PokemonTypeAndAbilityList pokemon={pokemon} title="타입" />
+          <PokemonTypeAndAbilityList pokemon={pokemon} title="능력" />
 
           <ul className="flex flex-wrap gap-1 overflow-auto mt-2">
             {pokemon.moves.map((move) => (

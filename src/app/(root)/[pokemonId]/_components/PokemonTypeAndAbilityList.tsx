@@ -6,7 +6,10 @@ interface BlablaListProps {
   title: string;
 }
 
-export default function BlablaList({ pokemon, title }: BlablaListProps) {
+export default function PokemonTypeAndAbilityList({
+  pokemon,
+  title,
+}: BlablaListProps) {
   const isType = title === "타입";
   const items = isType ? pokemon.types : pokemon.abilities;
   const bgColor = isType ? "bg-red-400" : "bg-green-300";
