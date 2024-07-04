@@ -1,7 +1,7 @@
 import { TPokemon } from "@/types/pokemons.type";
 import axios from "axios";
 
-const API_HOST = process.env.NEXT_API_HOST;
+const API_HOST = process.env.NEXT_PUBLIC_API_HOST;
 
 export interface PokemonResponse {
   nextOffset: number | null;
