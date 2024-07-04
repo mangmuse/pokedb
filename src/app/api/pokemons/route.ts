@@ -8,7 +8,7 @@ import {
 } from "@/types/pokemons.type";
 
 const TOTAL_POKEMON = 1008;
-const POKEMONS_PER_PAGE = 6;
+const POKEMONS_PER_PAGE = 12;
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

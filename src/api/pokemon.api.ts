@@ -38,7 +38,7 @@ export const getPokemons = async (
 ): Promise<PokemonResponse> => {
   try {
     const response = await fetch(
-      `${API_HOST}/api/pokemons?offset=${pageParam}&limit=6`
+      `${API_HOST}/api/pokemons?offset=${pageParam}&limit=12`
     );
     if (!response.ok) {
       throw new Error(`Error fetching data: ${response.statusText}`);

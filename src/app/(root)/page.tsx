@@ -5,17 +5,12 @@ import dynamic from "next/dynamic";
 // import PokemonList from "@/components/PokemonList";
 import { getPokemons } from "@/api/pokemon.api";
 import {
-  FetchInfiniteQueryOptions,
   HydrationBoundary,
   QueryClient,
   defaultShouldDehydrateQuery,
   dehydrate,
-  queryOptions,
-  usePrefetchInfiniteQuery,
-  useQueryClient,
 } from "@tanstack/react-query";
 import { pokemonOptions } from "@/api/pokemonOptions";
-import { get } from "http";
 
 // const PokemonList = dynamic(() => import("@/components/PokemonList"), {
 //   ssr: false,
