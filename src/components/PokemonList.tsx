@@ -7,11 +7,7 @@ import usePokemonsQuery from "@/hooks/usePokemonsQuery";
 import { PokemonResponse } from "@/api/pokemon.api";
 import Loading from "@/app/(root)/loading";
 
-export default function PokemonList({
-  pokemonData,
-}: {
-  pokemonData: PokemonResponse;
-}) {
+export default function PokemonList() {
   const {
     data,
     error,
@@ -19,7 +15,7 @@ export default function PokemonList({
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
-  } = usePokemonsQuery(pokemonData);
+  } = usePokemonsQuery();
   const { ref } = useInView({
     threshold: 0.1,
     onChange: (inView) => {

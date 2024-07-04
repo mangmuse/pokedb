@@ -5,7 +5,7 @@ import {
   useSuspenseInfiniteQuery,
 } from "@tanstack/react-query";
 
-export default function usePokemonsQuery(pokemonData: PokemonResponse) {
+export default function usePokemonsQuery() {
   return useInfiniteQuery<PokemonResponse, Error, PokemonResponse>({
     queryKey: ["pokemons"],
     queryFn: async ({ pageParam = 0 }) => {
@@ -13,10 +13,6 @@ export default function usePokemonsQuery(pokemonData: PokemonResponse) {
       return pokemons;
     },
     initialPageParam: 0,
-    initialData: {
-      pages: [pokemonData],
-      pageParams: [pokemonData.nextOffset],
-    },
 
     getNextPageParam: (lastPage) => {
       return lastPage.nextOffset;

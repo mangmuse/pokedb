@@ -9,8 +9,6 @@ import {
 import { pokemonOptions } from "@/api/pokemonOptions";
 
 export default async function HomePage() {
-  const data = await getPokemons();
-
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -28,7 +26,7 @@ export default async function HomePage() {
     <section className="">
       <h1 className="text-3xl text-white mt-6 text-center">포켓몬 도감</h1>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <PokemonList pokemonData={data} />
+        <PokemonList />
       </HydrationBoundary>
     </section>
   );
