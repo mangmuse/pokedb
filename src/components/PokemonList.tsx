@@ -5,13 +5,8 @@ import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import usePokemonsQuery from "@/hooks/usePokemonsQuery";
 import Loading from "@/app/(root)/loading";
-import { PokemonResponse } from "@/api/pokemon.api";
 
-export default function PokemonList({
-  initialPokemonList,
-}: {
-  initialPokemonList: PokemonResponse;
-}) {
+export default function PokemonList() {
   const {
     data,
     error,
@@ -19,8 +14,7 @@ export default function PokemonList({
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
-  } = usePokemonsQuery(initialPokemonList);
-  console.log(initialPokemonList);
+  } = usePokemonsQuery();
   const { ref } = useInView({
     threshold: 1,
     onChange: (inView) => {

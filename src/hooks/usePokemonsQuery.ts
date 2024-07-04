@@ -2,7 +2,7 @@
 import { PokemonResponse, getPokemons } from "@/api/pokemon.api";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
-export default function usePokemonsQuery(initialPokemonList: PokemonResponse) {
+export default function usePokemonsQuery() {
   return useInfiniteQuery<PokemonResponse, Error, PokemonResponse>({
     queryKey: ["pokemons"],
     queryFn: async ({ pageParam = 0 }) => {
@@ -10,11 +10,6 @@ export default function usePokemonsQuery(initialPokemonList: PokemonResponse) {
       return pokemons;
     },
     initialPageParam: 0,
-
-    initialData: {
-      pages: [initialPokemonList],
-      pageParams: [0],
-    },
 
     getNextPageParam: (lastPage) => {
       return lastPage.nextOffset ?? undefined;
