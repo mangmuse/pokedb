@@ -8,7 +8,7 @@ export default function PokemonDetailNav({ pokemonId }: { pokemonId: string }) {
   return (
     <nav className="flex items-center gap-3 mt-1">
       <Link href={prevPokemonPage}>
-        <Button bgColor="bg-gray-500" isDisabled={pokemonIdNumber < 2}>
+        <Button bgColor="bg-blue-500" isDisabled={pokemonIdNumber < 2}>
           이전 포켓몬
         </Button>
       </Link>

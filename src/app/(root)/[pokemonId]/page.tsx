@@ -8,6 +8,10 @@ import { getPokemonData } from "@/api/pokemon.api";
 import Spanitem from "@/components/Spanitem";
 import { redirect } from "next/navigation";
 import PokemonDetailNav from "./_components/PokemonDetailNav";
+import {
+  formatPokemonHeight,
+  formatPokemonWeight,
+} from "@/util/pokemonIdFormatUtils";
 
 interface PokemonDetailPageProps {
   params: {
@@ -33,6 +37,9 @@ export default async function PokemonDetailPage({
 
   if (!pokemon) redirect("/");
 
+  const formattedWeight = formatPokemonWeight(pokemon.weight);
+  const formattedHeight = formatPokemonHeight(pokemon.height);
+
   return (
     <div className="h-full flex justify-center items-center  ">
       <section className="max-w-screen-sm bg-gray-100 rounded-xl">
@@ -46,7 +53,7 @@ export default async function PokemonDetailPage({
           ></Image>
           <h3 className="text-xl mb-2 font-semibold">{pokemon.korean_name}</h3>
           <p>
-            키: {pokemon.height} m 무게: {pokemon.weight} kg
+            키: {formattedHeight}cm 무게: {formattedWeight}kg
           </p>
 
           <BlablaList pokemon={pokemon} title="타입" />

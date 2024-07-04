@@ -12,18 +12,6 @@ import {
 } from "@tanstack/react-query";
 import { pokemonOptions } from "@/api/pokemonOptions";
 
-// const PokemonList = dynamic(() => import("@/components/PokemonList"), {
-//   ssr: false,
-//   loading: () => <Loading />,
-// });
-
-// export const pokemonOptions = queryOptions({
-//   queryKey: ["pokemons"],
-//   queryFn: async () => {
-//     const res = await getPokemons();
-//     return res;
-//   },
-// });
 export default async function HomePage() {
   const data = await getPokemons();
 
@@ -33,7 +21,6 @@ export default async function HomePage() {
         staleTime: 60 * 1000,
       },
       dehydrate: {
-        // include pending queries in dehydration
         shouldDehydrateQuery: (query) =>
           defaultShouldDehydrateQuery(query) ||
           query.state.status === "pending",
