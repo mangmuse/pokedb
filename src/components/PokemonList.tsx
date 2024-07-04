@@ -4,17 +4,10 @@ import PokemonCard from "./PokemonCard";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import usePokemonsQuery from "@/hooks/usePokemonsQuery";
-import Loading from "@/app/(root)/loading";
 
 export default function PokemonList() {
-  const {
-    data,
-    error,
-    isPending,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-  } = usePokemonsQuery();
+  const { data, error, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    usePokemonsQuery();
   const { ref } = useInView({
     threshold: 1,
     onChange: (inView) => {
@@ -27,7 +20,6 @@ export default function PokemonList() {
   if (error) {
     return <div className="text-white">Error: {error.message}</div>;
   }
-  if (isPending) return <Loading />;
   return (
     <div>
       <ul className="p-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
