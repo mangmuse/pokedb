@@ -1,5 +1,5 @@
 import { pokemonOptions } from "@/api/pokemonPrefetchQueryOptions";
-import PokemonList from "@/components/PokemonList";
+import PokemonList from "@/app/(root)/_components/PokemonList";
 import {
   HydrationBoundary,
   QueryClient,

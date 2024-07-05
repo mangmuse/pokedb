@@ -2,7 +2,7 @@
 
 import { TPokemon } from "@/types/pokemons.type";
 import Image from "next/image";
-import SpanItem from "./Spanitem";
+import SpanItem from "../../../components/Spanitem";
 import { formatPokemonId } from "@/util/pokemonNumberFormatUtils";
 
 interface PokemonCardProps {
