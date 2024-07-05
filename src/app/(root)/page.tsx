@@ -24,7 +24,7 @@ export default async function HomePage() {
   await queryClient.prefetchInfiniteQuery(pokemonOptions);
   return (
     <section className="">
-      <h1 className="text-3xl text-white mt-6 text-center">포켓몬 도감</h1>
+      <h1 className="p-10 text-4xl text-white mt-6 text-center">포켓몬 도감</h1>
       <HydrationBoundary state={dehydrate(queryClient)}>
         <PokemonList />
       </HydrationBoundary>
