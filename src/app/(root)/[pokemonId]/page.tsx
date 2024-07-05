@@ -42,8 +42,8 @@ export default async function PokemonDetailPage({
   const formattedHeight = formatPokemonHeight(pokemon.height);
 
   return (
-    <div className="h-full flex justify-center items-center  overflow-auto">
-      <section className="max-w-screen-sm bg-gray-100 rounded-xl ">
+    <div className="h-screen flex justify-center items-center  ">
+      <section className="max-h-screen max-w-screen-sm bg-gray-100 rounded-xl overflow-auto  ">
         <PokemonDetailHeader pokemon={pokemon} />
         <article className="flex flex-col items-center p-4 ">
           <Image
@@ -55,13 +55,13 @@ export default async function PokemonDetailPage({
           ></Image>
           <h3 className="text-xl mb-2 font-semibold">{pokemon.korean_name}</h3>
           <p>
-            키: {formattedHeight}cm 무게: {formattedWeight}kg
+            키: {formattedHeight}cm 몸무게: {formattedWeight}kg
           </p>
 
           <PokemonTypeAndAbilityList pokemon={pokemon} title="타입" />
           <PokemonTypeAndAbilityList pokemon={pokemon} title="능력" />
 
-          <ul className="flex flex-wrap gap-1 overflow-auto mt-2">
+          <ul className="flex max-h-48 flex-wrap gap-1 mt-4 overflow-auto">
             {pokemon.moves.map((move) => (
               <li key={move.move.korean_name}>
                 <Spanitem bgColor="bg-gray-300">

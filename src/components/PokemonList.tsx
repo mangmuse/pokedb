@@ -4,7 +4,6 @@ import PokemonCard from "./PokemonCard";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import usePokemonsQuery from "@/hooks/usePokemonsQuery";
-import { PokemonResponse } from "@/api/pokemon.api";
 import Loading from "@/app/(root)/loading";
 
 export default function PokemonList() {

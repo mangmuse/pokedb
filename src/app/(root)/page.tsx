@@ -1,12 +1,11 @@
+import { pokemonOptions } from "@/api/pokemonPrefetchQueryOptions";
 import PokemonList from "@/components/PokemonList";
-import { getPokemons } from "@/api/pokemon.api";
 import {
   HydrationBoundary,
   QueryClient,
   defaultShouldDehydrateQuery,
   dehydrate,
 } from "@tanstack/react-query";
-import { pokemonOptions } from "@/api/pokemonOptions";
 
 export default async function HomePage() {
   const queryClient = new QueryClient({
@@ -21,6 +20,7 @@ export default async function HomePage() {
       },
     },
   });
+
   await queryClient.prefetchInfiniteQuery(pokemonOptions);
   return (
     <section className="">

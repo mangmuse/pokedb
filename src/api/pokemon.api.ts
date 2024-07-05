@@ -32,39 +32,3 @@ export const getPokemonData = async (
     return null;
   }
 };
-
-// export const getPokemons = async (
-//   pageParam: number | unknown = 0
-// ): Promise<PokemonResponse> => {
-//   try {
-//     const response = await fetch(
-//       `${API_HOST}/api/pokemons?offset=${pageParam}&limit=6`
-//     );
-//     if (!response.ok) {
-//       throw new Error(`Error fetching data: ${response.statusText}`);
-//     }
-//     const data: PokemonResponse = await response.json();
-//     return data;
-//   } catch (e) {
-//     console.error(e);
-//     throw e;
-//   }
-// };
-
-// export const getPokemonData = async (
-//   pokemonId: string
-// ): Promise<TPokemon<true> | null> => {
-//   try {
-//     const response = await fetch(
-//       `${API_HOST}/api/pokemons/${pokemonId}?pokemonId=${pokemonId}`
-//     );
-//     if (!response.ok) {
-//       throw new Error(`Error fetching data: ${response.statusText}`);
-//     }
-//     const data: TPokemon<true> = await response.json();
-//     return data;
-//   } catch (e) {
-//     console.error(e);
-//     return null;
-//   }
-// };

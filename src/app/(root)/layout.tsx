@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <QueryProvider>
-      <main className="flex flex-col w-full max-w-screen-2xl  h-screen mx-auto ">
+      <main className="flex flex-col w-full max-w-screen-xl  h-screen mx-auto ">
         {children}
       </main>
     </QueryProvider>
