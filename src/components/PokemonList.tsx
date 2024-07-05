@@ -11,6 +11,7 @@ export default function PokemonList() {
     data,
     error,
     isFetching,
+    isLoading,
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
