@@ -39,7 +39,7 @@ export default function PokemonList() {
           </li>
         ))}
       </ul>
-      <div className="text-white" ref={ref}></div>
+      <div className="text-white h-5" ref={ref}></div>
       {isFetching && <Loading />}
     </div>
   );
